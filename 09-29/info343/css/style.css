@@ -1,0 +1,39 @@
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+header {
+    background-image: url('../hotrod_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    padding-top: 50px;
+}
+
+h1 {
+    margin: 0px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.imdb, 
+.imdb a {
+    color: red;
+}
+
+.youtube a {
+    color: #f1bc41;
+}
+
+.youtube img {
+    height: 400px;
+}
+
+.youtube-2 a {
+    color: rgb(0,0,0);
+}
