@@ -1,0 +1,42 @@
+body {
+    background-color: orange;
+    color: white;
+
+}
+
+html {
+    font-size: 10px;
+}
+
+/* Mobile styles */
+@media (max-width: 320px) {
+    body {
+        background-color: blue;
+    }
+
+    html {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 320px) and (max-width: 768px) {
+    body {
+        background-color: red;
+    }
+
+    html {
+        font-size: 1.6rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    body {
+        background-color: green;
+    }
+
+    html {
+        font-size: 2.4rem;
+    }
+}

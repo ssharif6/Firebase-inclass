@@ -1,0 +1,49 @@
+html { font-size: 20px; }
+
+body {
+    height: 2000px;
+}
+
+div {
+    /*background-color: orange;*/
+}
+
+.div1 {
+    background-color: red;
+    height: 400px;
+    width: 50%;
+
+}
+
+.div2 {
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+    top: 50px;
+    position: relative;
+}
+
+.container {
+    width: 768px;
+    margin: 0 auto 0 auto;
+}
+
+.p1 {
+    font-size: 1.4em;
+}
+
+.p2 {
+    font-size: 2.4em;
+}
+
+.p3 {
+    font-size: 3.4em;
+}
+
+li {
+    font-size: 2rem;
+}
+
+li.important {
+    font-size: 100px;
+}
