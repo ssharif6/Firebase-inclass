@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Jason",
+        "gender": "Male",
+        "count": 100
+    },
+    {
+        "name": "Alex",
+        "gender": "Male",
+        "count": 1
+    },
+    {
+        "name": "Sarah",
+        "gender": "Female",
+        "count": 100
+    },
+    {
+        "name": "Alexa",
+        "gender": "Female",
+        "count": 80
+    },
+    {
+        "name": "John",
+        "gender": "Male",
+        "count": 50
+    }
+]

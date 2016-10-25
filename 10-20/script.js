@@ -1,21 +1,70 @@
 // Create variables for important elements (dropdown, table)
 var dropdown = document.querySelector("#dropdown");
 var table = document.querySelector(".table");
+var BABY_NAMES;
 
-// Build the filtered lists of names.
-// Array.filter allows you to take an array of items
-// and create a new array with just the values
-// that match a certain condition. In this case,
-// we want to build two lists, one for each gender.
-// When comparing strings, always a good idea to
-// set both strings to the same case (unless capitalization is important).
-var maleNames = BABY_NAMES.filter(function (name) {
-    return name.gender.toLowerCase() === "male";
-});
+// fetch('baby-names.json')
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (json) {
+//     console.log(json);
+// });
 
-var femaleNames = BABY_NAMES.filter(function (name) {
-    return name.gender.toLowerCase() === "female";
-});
+// Using XMLHttpRequest()
+var httpRequest = new XMLHttpRequest();
+
+// This is the callback function that will get called
+// during the lifecycle of the request.
+// Similar to the callback you specify to addEventListener,
+// this function is not called immediately,
+// but rather at some point in the future.
+httpRequest.onreadystatechange = function() {
+    // First, check that the request is done.
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        // Next, check that the request completed successfully
+        if (httpRequest.status === 200) {
+            // try/catch allows you to execute code,
+            // and if that code results in an error,
+            // for example if the JSON text we receive is malformed,
+            // prevent your program from crashing
+            // and handle the error gracefully (catch block).s
+            try {
+                // Before, BABY_NAMES was set as a global variable,
+                // but now we are getting it from a separate file.
+                // The content of that file will be httpRequest.responseText,
+                // and we use JSON.parse to turn that
+                // into actual JavaScripts objects.
+                BABY_NAMES = JSON.parse(httpRequest.responseText);
+
+                // Build the filtered lists of names.
+                // Array.filter allows you to take an array of items
+                // and create a new array with just the values
+                // that match a certain condition. In this case,
+                // we want to build two lists, one for each gender.
+                // When comparing strings, always a good idea to
+                // set both strings to the same case (unless capitalization is important).
+                maleNames = BABY_NAMES.filter(function (name) {
+                    return name.gender.toLowerCase() === "male";
+                });
+
+                femaleNames = BABY_NAMES.filter(function (name) {
+                    return name.gender.toLowerCase() === "female";
+                });
+
+                // On page load, show the data for both genders.
+                buildRows(BABY_NAMES);
+            } catch (error) {
+                table.innerHTML = "Error building table.";
+                dropdown.setAttribute("disabled", "disabled");
+            }
+        }
+    }
+};
+// Defines what url we are requesting,
+// and the request method. Then, sends the request.
+httpRequest.open('GET', "baby-names.json");
+httpRequest.send();
 
 // Function to create the elements needed for the table,
 // including the table body (where the rows will be rendered)
@@ -131,6 +180,3 @@ dropdown.addEventListener("change", function (e) {
         buildRows(BABY_NAMES);
     }
 });
-
-// On page load, show the data for both genders.
-buildRows(BABY_NAMES);
